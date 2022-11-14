@@ -1,37 +1,15 @@
-import React from 'react';
-import '../scss/components/_aviaForm.scss';
-import calendar_1 from '../assets/img/calendar_1.svg';
+import React from "react";
+import "../scss/components/_aviaForm.scss";
+import Input from "../components/Input";
 
 const Avia: React.FC = () => {
   return (
     <div className="aviaform-board">
       <div className="form">
-        <div className="input-block">
-          <div className="label">Откуда</div>
-          <div className="input-window">
-            <input type="text" placeholder="Город вылета"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Куда</div>
-          <div className="input-window">
-            <input type="text" placeholder="Город прилёта"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Туда</div>
-          <div className="input-window">
-            <img width="16" src={calendar_1} alt="Calendar grey" />
-            <input type="text" placeholder="дд.мм.гг"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Обратно</div>
-          <div className="input-window">
-            <img width="16" src={calendar_1} alt="Calendar grey" />
-            <input type="text" placeholder="дд.мм.гг"></input>
-          </div>
-        </div>
+        <Input label="Откуда" placeholder="Город вылета" />
+        <Input label="Туда" placeholder="Город прилёта" />
+        <Input label="Туда" placeholder="дд.мм.гг" type="date" />
+        <Input label="Обратно" placeholder="дд.мм.гг" type="date" />
       </div>
       <div className="button-block">
         <div className="button">
