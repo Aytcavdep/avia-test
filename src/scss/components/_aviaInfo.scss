@@ -1,0 +1,166 @@
+.aviainfo-board {
+  display: grid;
+  grid-template-columns: 790px 190px;
+  width: 980px;
+  height: 200px;
+
+  box-shadow: 0px 0px 14px rgba(112, 121, 153, 0.3);
+  border-radius: 15px;
+
+  .ticket-info {
+    display: grid;
+    grid-template-rows: 26px 174px;
+
+    .ticket-type {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      width: 132px;
+      height: 26px;
+      background: #8ba5d8;
+      border-radius: 15px 0px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .ticket {
+      display: grid;
+      grid-template-columns: 157px auto 103px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      color: #5c5c5c;
+
+      .ticket-logo {
+        display: grid;
+        grid-template-rows: min-content;
+        justify-items: center;
+        row-gap: 8px;
+        margin-top: 28px;
+      }
+
+      .ticket-setting {
+        display: grid;
+        grid-template-rows: 107px 67px;
+        .ticket-departure-arrival {
+          display: grid;
+          grid-template-columns: 102px auto 131px;
+
+          .ticket-time {
+            margin-top: 15px;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 28px;
+            color: #232323;
+          }
+
+          .ticket-date {
+            margin-top: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: #5c5c5c;
+          }
+
+          .ticket-scheme {
+            display: grid;
+            grid-template-rows: 20px 20px 20px;
+            align-content: stretch;
+
+            .ticket-scheme-svo-rov {
+              display: grid;
+              grid-template-columns: auto 242px auto;
+              margin-top: 7px;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 140%;
+              color: #b7bac1;
+            }
+
+            .ticket-scheme-line {
+              text-align: center;
+              hr {
+                display: inline-block;
+                width: 262px;
+                margin-bottom: 3px;
+                border: 1px solid #b7bac1;
+              }
+
+              .circle {
+                display: inline-block;
+                width: 8px;
+                height: 8px;
+
+                background: #c4c4c4;
+                border-radius: 50%;
+              }
+            }
+
+            .ticket-scheme-title {
+              text-align: center;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 140%;
+              color: #b7bac1;
+            }
+          }
+
+          .ticket-arrival {
+            margin-left: 28px;
+          }
+        }
+
+        .ticket-time-select {
+          display: grid;
+          align-items: center;
+          grid-template-columns: 140px 140px 140px;
+
+          .time-button {
+            width: 107px;
+            height: 34px;
+            border: 1px solid #b7bac1;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            line-height: 34px;
+
+            &.active {
+              width: 130px;
+              height: 40px;
+              line-height: 40px;
+              background: #dde3ee;
+              color: #000;
+            }
+
+            .time-departure {
+              font-size: 18px;
+              line-height: 21px;
+            }
+          }
+        }
+      }
+
+      .ticket-baggage {
+        padding-left: 33px;
+        img:last-child {
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .ticket-price {
+    display: grid;
+    align-items: center;
+    padding-left: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    border-left: 1px solid #dde3ee;
+  }
+}

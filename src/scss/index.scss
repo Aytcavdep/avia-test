@@ -1,0 +1,16 @@
+/*@import 'variables.scss';*/
+@import 'libs/normalize.scss';
+
+@import 'components/aviaForm.scss';
+@import 'components/aviaInfo.scss';
+
+body {
+  display: grid;
+  justify-items: center;
+  padding-top: 68px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}
