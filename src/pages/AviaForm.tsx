@@ -1,42 +1,81 @@
-import React from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import '../scss/components/_aviaForm.scss';
-import calendar_1 from '../assets/img/calendar_1.svg';
+import Input from '../components/Input';
+/* import { DepartureInfoProps } from '../App' */
 
 const Avia: React.FC = () => {
+  const [departureInfo, setDepartureInfo] = useState({
+    departTime: '09:20',
+    departCity: 'Москва',
+    departDate: '19.07.2022',
+  });
+  const [arrivalInfo, setArrivalInfo] = useState({
+    arrivalTime: '11:05',
+    arrivalCity: 'Ростов на Дону',
+    arrivalDate: '19.07.2022',
+  });
+  const onChangeDepartCity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDepartureInfo((prevState) => ({
+      ...prevState,
+      departCity: e.target.value,
+    }));
+  };
+
+  const onChangeArrivalCity = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setArrivalInfo((prevState) => ({
+      ...prevState,
+      arrivalCity: e.target.value,
+    }));
+  };
+
+  const onChangeDepartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDepartureInfo((prevState) => ({
+      ...prevState,
+      departDate: e.target.value,
+    }));
+  };
+
+  const onChangeArrivalDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setArrivalInfo((prevState) => ({
+      ...prevState,
+      arrivalDate: e.target.value,
+    }));
+  };
+
   return (
     <div className="aviaform-board">
       <div className="form">
-        <div className="input-block">
-          <div className="label">Откуда</div>
-          <div className="input-window">
-            <input type="text" placeholder="Город вылета"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Куда</div>
-          <div className="input-window">
-            <input type="text" placeholder="Город прилёта"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Туда</div>
-          <div className="input-window">
-            <img width="16" src={calendar_1} alt="Calendar grey" />
-            <input type="text" placeholder="дд.мм.гг"></input>
-          </div>
-        </div>
-        <div className="input-block">
-          <div className="label">Обратно</div>
-          <div className="input-window">
-            <img width="16" src={calendar_1} alt="Calendar grey" />
-            <input type="text" placeholder="дд.мм.гг"></input>
-          </div>
-        </div>
+        <Input
+          value={departureInfo.departCity}
+          onChange={onChangeDepartCity}
+          label="Откуда"
+          placeholder="Город вылета"
+        />
+        <Input
+          value={arrivalInfo.arrivalCity}
+          onChange={onChangeArrivalCity}
+          label="Куда"
+          placeholder="Город прилёта"
+        />
+        <Input
+          value={departureInfo.departDate}
+          onChange={onChangeDepartDate}
+          label="Туда"
+          placeholder="дд.мм.гг"
+          type="date"
+        />
+        <Input
+          value={arrivalInfo.arrivalDate}
+          onChange={onChangeArrivalDate}
+          label="Обратно"
+          placeholder="дд.мм.гг"
+          type="date"
+        />
       </div>
       <div className="button-block">
-        <div className="button">
+        <button className="button">
           <p>Найти билеты</p>
-        </div>
+        </button>
       </div>
     </div>
   );

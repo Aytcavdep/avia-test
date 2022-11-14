@@ -1,10 +1,32 @@
-import React from 'react';
-import '../scss/components/_aviaInfo.scss';
-import ticket_logo from '../assets/img/ticket_logo.svg';
-import baggage from '../assets/img/baggage.svg';
-import bag from '../assets/img/bag.svg';
+import React, { useState } from "react";
+import "../scss/components/_aviaInfo.scss";
+import ticket_logo from "../assets/img/ticket_logo.svg";
+import baggage from "../assets/img/baggage.svg";
+import bag from "../assets/img/bag.svg";
+import Button from "../components/Button";
+import TicketScheme from "../components/TicketScheme";
 
-const AviaInfo = () => {
+/*export type DepartureInfoType = {
+  departTime: string;
+  departCity: string;
+  departDate: string;
+};
+export type ArrivalInfoType = {
+  arrivalTime: string;
+  arrivalCity: string;
+  arrivalDate: string;
+};*/
+const AviaInfo: React.FC = () => {
+  const [departureInfo, setDepartureInfo] = useState({
+    departTime: "09:20",
+    departCity: "Москва",
+    departDate: "19.07.2022",
+  });
+  const [arrivalInfo, setArrivalInfo] = useState({
+    arrivalTime: "11:05",
+    arrivalCity: "Ростов на Дону",
+    arrivalDate: "19.07.2022",
+  });
   return (
     <div className="aviainfo-board">
       <div className="ticket-info">
@@ -17,51 +39,14 @@ const AviaInfo = () => {
             <div>S7 Airlines</div>
           </div>
           <div className="ticket-setting">
-            <div className="ticket-departure-arrival">
-              <div className="ticket-departure">
-                <div className="ticket-time">09:20</div>
-                <div className="ticket-date">Москва 19.05.2022</div>
-              </div>
-              <div className="ticket-scheme">
-                <div className="ticket-scheme-svo-rov">
-                  <div className="ticket-svo">SVO</div>
-                  <div></div>
-                  <div className="ticket-rov">ROV</div>
-                </div>
-                <div className="ticket-scheme-line">
-                  <div className="circle"></div>
-                  <hr />
-                  <div className="circle"></div>
-                </div>
-                <div className="ticket-scheme-title">В пути 1 ч 55 мин</div>
-              </div>
-              <div className="ticket-arrival">
-                <div className="ticket-time">09:20</div>
-                <div className="ticket-date">Ростов на Дону 19.05.2022</div>
-              </div>
-            </div>
+            <TicketScheme
+              departureInfo={departureInfo}
+              arrivalInfo={arrivalInfo}
+            />
             <div className="ticket-time-select">
-              <div className="ticket-time-button">
-                <div className="time-button active">
-                  <span className="time-departure">09:20</span>
-                  <span> - </span>
-                  <span className="time arrival">11:05</span>
-                </div>
-              </div>
-              <div className="ticket-time-button">
-                <div className="time-button">
-                  <span className="time-departure">10:20</span>
-                  <span> - </span>
-                  <span className="time arrival">12:05</span>
-                </div>
-              </div>
-              <div className="ticket-time-button">
-                <div className="time-button">
-                  <span className="time-departure">11:20</span>
-                  <span> - </span>
-                  <span className="time arrival">13:05</span>
-                </div>
-              </div>
+              <Button departureTime="09:20" arrivalTime="11:05" />
+              <Button departureTime="10:20" arrivalTime="12:05" />
+              <Button departureTime="11:20" arrivalTime="13:05" />
             </div>
           </div>
           <div className="ticket-baggage">

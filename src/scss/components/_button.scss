@@ -1,0 +1,28 @@
+.time-button {
+    display: grid;
+        align-items: center;
+    justify-items: center;
+        grid-auto-flow: column;
+            width: 107px;
+            height: 34px;
+            border: 1px solid #b7bac1;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+           /* text-align: center;
+            line-height: 34px;*/
+
+            &.active {
+              width: 130px;
+              height: 40px;
+              line-height: 40px;
+              background: #dde3ee;
+              color: #000;
+            }
+
+            .time-departure {
+              font-size: 18px;
+              line-height: 21px;
+            }
+          }
