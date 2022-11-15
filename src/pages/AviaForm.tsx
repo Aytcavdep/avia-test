@@ -1,19 +1,43 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
-import '../scss/components/_aviaForm.scss';
-import Input from '../components/Input';
-/* import { DepartureInfoProps } from '../App' */
+import React, { Dispatch, SetStateAction } from "react";
+import "../scss/components/_aviaForm.scss";
+import Input from "../components/Input";
 
-const Avia: React.FC = () => {
-  const [departureInfo, setDepartureInfo] = useState({
-    departTime: '09:20',
-    departCity: 'Москва',
-    departDate: '19.07.2022',
-  });
-  const [arrivalInfo, setArrivalInfo] = useState({
-    arrivalTime: '11:05',
-    arrivalCity: 'Ростов на Дону',
-    arrivalDate: '19.07.2022',
-  });
+export type DepartureInfoType = {
+  departTime: string;
+  departCity: string;
+  departDate: string;
+};
+export type ArrivalInfoType = {
+  arrivalTime: string;
+  arrivalCity: string;
+  arrivalDate: string;
+};
+export interface AviaProps {
+  departureInfo: DepartureInfoType;
+  setDepartureInfo: Dispatch<SetStateAction<DepartureInfoType>>;
+  arrivalInfo: ArrivalInfoType;
+  setArrivalInfo: Dispatch<SetStateAction<ArrivalInfoType>>;
+}
+const AviaForm: React.FC<AviaProps> = ({
+  departureInfo,
+  setDepartureInfo,
+  arrivalInfo,
+  setArrivalInfo,
+}: AviaProps) => {
+  function validateDate() {
+    const regex = new RegExp(
+      "([0-2]{1}[0-9]{1}|3[0-1]{1})[.](0[1-9]|1[0-2])[.][0-9]{2}$"
+    );
+    const deparDateOk = regex.test(departureInfo.departDate);
+    const arrivalDateOk = arrivalInfo.arrivalDate
+      ? regex.test(arrivalInfo.arrivalDate)
+      : true;
+    if (deparDateOk && arrivalDateOk) {
+      alert("Ok");
+    } else {
+      alert("not Ok");
+    }
+  }
   const onChangeDepartCity = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDepartureInfo((prevState) => ({
       ...prevState,
@@ -73,7 +97,7 @@ const Avia: React.FC = () => {
         />
       </div>
       <div className="button-block">
-        <button className="button">
+        <button className="button" onClick={validateDate}>
           <p>Найти билеты</p>
         </button>
       </div>
@@ -81,4 +105,4 @@ const Avia: React.FC = () => {
   );
 };
 
-export default Avia;
+export default AviaForm;

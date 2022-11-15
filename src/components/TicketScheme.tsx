@@ -23,7 +23,9 @@ const TicketScheme: React.FC<TicketSchemeProps> = ({
       <div className="ticket-departure">
         <div className="ticket-time">{departTime}</div>
         <div className="ticket-date">
-          {departCity} {departDate}
+          {departCity}
+          <br />
+          {departDate}
         </div>
       </div>
       <div className="ticket-scheme">
@@ -42,7 +44,9 @@ const TicketScheme: React.FC<TicketSchemeProps> = ({
       <div className="ticket-arrival">
         <div className="ticket-time">{arrivalTime}</div>
         <div className="ticket-date">
-          {arrivalCity} {arrivalDate}
+          {arrivalCity}
+          <br />
+          {arrivalDate}
         </div>
       </div>
     </div>

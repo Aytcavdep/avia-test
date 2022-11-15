@@ -1,32 +1,24 @@
-import React, { useState } from "react";
-import "../scss/components/_aviaInfo.scss";
+import React from "react";
+import "../scss/components/_aviaTicket.scss";
 import ticket_logo from "../assets/img/ticket_logo.svg";
 import baggage from "../assets/img/baggage.svg";
 import bag from "../assets/img/bag.svg";
 import Button from "../components/Button";
 import TicketScheme from "../components/TicketScheme";
+import { AviaProps } from "./AviaForm";
 
-/*export type DepartureInfoType = {
-  departTime: string;
-  departCity: string;
-  departDate: string;
-};
-export type ArrivalInfoType = {
-  arrivalTime: string;
-  arrivalCity: string;
-  arrivalDate: string;
-};*/
-const AviaInfo: React.FC = () => {
-  const [departureInfo, setDepartureInfo] = useState({
-    departTime: "09:20",
-    departCity: "Москва",
-    departDate: "19.07.2022",
-  });
-  const [arrivalInfo, setArrivalInfo] = useState({
-    arrivalTime: "11:05",
-    arrivalCity: "Ростов на Дону",
-    arrivalDate: "19.07.2022",
-  });
+const AviaTicket: React.FC<AviaProps> = ({
+  departureInfo,
+  setDepartureInfo,
+  arrivalInfo,
+  setArrivalInfo,
+}: AviaProps) => {
+  const useStateProps = {
+    departureInfo,
+    setDepartureInfo,
+    arrivalInfo,
+    setArrivalInfo,
+  };
   return (
     <div className="aviainfo-board">
       <div className="ticket-info">
@@ -39,14 +31,23 @@ const AviaInfo: React.FC = () => {
             <div>S7 Airlines</div>
           </div>
           <div className="ticket-setting">
-            <TicketScheme
-              departureInfo={departureInfo}
-              arrivalInfo={arrivalInfo}
-            />
+            <TicketScheme {...useStateProps} />
             <div className="ticket-time-select">
-              <Button departureTime="09:20" arrivalTime="11:05" />
-              <Button departureTime="10:20" arrivalTime="12:05" />
-              <Button departureTime="11:20" arrivalTime="13:05" />
+              <Button
+                departureTime="09:20"
+                arrivalTime="11:05"
+                {...useStateProps}
+              />
+              <Button
+                departureTime="10:20"
+                arrivalTime="12:05"
+                {...useStateProps}
+              />
+              <Button
+                departureTime="11:20"
+                arrivalTime="13:05"
+                {...useStateProps}
+              />
             </div>
           </div>
           <div className="ticket-baggage">
@@ -62,4 +63,4 @@ const AviaInfo: React.FC = () => {
   );
 };
 
-export default AviaInfo;
+export default AviaTicket;

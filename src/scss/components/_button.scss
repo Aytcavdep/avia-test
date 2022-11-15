@@ -10,8 +10,12 @@
             font-weight: 500;
             font-size: 14px;
             line-height: 16px;
-           /* text-align: center;
-            line-height: 34px;*/
+          background: #fff;
+
+&:hover {
+  cursor: pointer;
+  background: #dde3ee;
+}
 
             &.active {
               width: 130px;
