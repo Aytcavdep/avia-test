@@ -1,5 +1,6 @@
 import '../scss/components/_input.scss';
 import calendar_1 from '../assets/img/calendar_1.svg';
+import calendar_2 from '../assets/img/calendar_2.svg';
 
 type InputProps = {
   value: string;
@@ -19,7 +20,11 @@ const Input: React.FC<InputProps> = ({
     <div className="input-block">
       <div className="label">{label}</div>
       <div className="input-window">
-        <img width="16" src={calendar_1} alt="Calendar grey" />
+        {value ? (
+          <img width="16" src={calendar_2} alt="Calendar grey" />
+        ) : (
+          <img width="16" src={calendar_1} alt="Calendar blue" />
+        )}
         <input
           onChange={onChange}
           value={value}

@@ -25,9 +25,14 @@
       background: #5c87db;
       border: none;
       border-radius: 10px;
+      cursor: pointer;
 
       &:disabled {
         background: #b7bac1;
+        cursor: not-allowed;
+        &:hover {
+          background: #b7bac1;
+        }
       }
 
       &:hover {

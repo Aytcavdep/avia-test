@@ -1,45 +1,44 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import { useState } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AviaForm from './pages/AviaForm';
-import AviaInfo from './pages/AviaInfo';
+import AviaTicket from './pages/AviaTicket';
+import AviaTicketReturn from './pages/AviaTicketReturn';
 
-/* export type DepartureInfoProps = {
-  departureInfo: {
-    departTime: string;
-    departCity: string;
-    departDate: string;
-  };
-};
-
-export type SetDepartureInfo = {
-  setDepartureInfo: Dispatch<
-    SetStateAction<{
-      departTime: string;
-      departCity: string;
-      departDate: string;
-    }>
-  >;
-}; */
 const App = () => {
-  /*  const [departureInfo, setDepartureInfo] = useState({
+  const [departureInfo, setDepartureInfo] = useState({
     departTime: '09:20',
-    departCity: 'Москва',
-    departDate: '19.07.2022',
+    departCity: '',
+    departDate: '',
   });
   const [arrivalInfo, setArrivalInfo] = useState({
     arrivalTime: '11:05',
-    arrivalCity: 'Ростов на Дону',
-    arrivalDate: '19.07.2022',
+    arrivalCity: '',
+    arrivalDate: '',
   });
-  const Props = {
+  const useStateProps = {
     departureInfo,
     setDepartureInfo,
     arrivalInfo,
     setArrivalInfo,
-  }; */
+  };
   return (
     <div>
-      <AviaForm />
-      <AviaInfo />
+      <Routes>
+        {/* <Route path="/" element={<AviaForm {...useStateProps} />} /> */}
+        <Route path="/" element={<Navigate to="/avia" />} />
+        <Route path="/avia" element={<AviaForm {...useStateProps} />} />
+        <Route
+          path="/avia/info"
+          element={
+            arrivalInfo.arrivalDate ? (
+              <AviaTicketReturn {...useStateProps} />
+            ) : (
+              <AviaTicket {...useStateProps} />
+            )
+          }
+        />
+        {/*  <AviaTicketReturn {...useStateProps} /> */}
+      </Routes>
     </div>
   );
 };

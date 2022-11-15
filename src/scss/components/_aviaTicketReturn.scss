@@ -1,0 +1,81 @@
+.aviainfo-board-return {
+  display: grid;
+  grid-template-columns: 790px 190px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    '. ticket-price-return'
+    '. ticket-price-return';
+  width: 980px;
+  height: 400px;
+  box-shadow: 0px 0px 14px rgba(112, 121, 153, 0.3);
+  border-radius: 15px;
+
+  .ticket-info-return {
+    display: grid;
+    grid-template-rows: 26px 174px;
+
+    &.back-ticket {
+      border-top: 1px dashed #5c87db;
+      border-radius: 15px 0 0 0;
+    }
+
+    .ticket-type-return {
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      width: 132px;
+      height: 26px;
+      background: #8ba5d8;
+      border-radius: 15px 0px;
+      font-weight: 600;
+      color: #fff;
+      user-select: none;
+    }
+
+    .ticket-return {
+      display: grid;
+      grid-template-columns: 157px auto 103px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      color: #5c5c5c;
+
+      .ticket-logo-return {
+        display: grid;
+        grid-template-rows: min-content;
+        justify-items: center;
+        row-gap: 8px;
+        margin-top: 28px;
+      }
+
+      .ticket-setting-return {
+        display: grid;
+        grid-template-rows: 107px 67px;
+      }
+
+      .ticket-baggage-return {
+        padding-left: 33px;
+        img:last-child {
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .ticket-price-return {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: '.';
+    grid-area: ticket-price-return;
+    align-items: center;
+    padding-left: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    border-left: 1px solid #dde3ee;
+  }
+}
